@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * ⭐ TOKENS DE MARCA
+ * Para cambiar la paleta de la plantilla, editá la escala `--color-brand-*`.
+ *   brand-900 → azul profundo (títulos, botones principales)
+ *   brand-500 → azul medio (acentos)
+ *   brand-50  → azul muy claro (fondos de secciones)
+ *   ink-*     → gris neutro para textos
+ * Los tokens semánticos de shadcn/ui (primary, accent, muted…) se derivan de estos.
+ */
+@theme {
+  --color-brand-50: #eef5fc;
+  --color-brand-100: #dceaf8;
+  --color-brand-200: #bcd6f1;
+  --color-brand-300: #8dbae6;
+  --color-brand-400: #5a98d6;
+  --color-brand-500: #3479c2;
+  --color-brand-600: #2461a6;
+  --color-brand-700: #1d4e87;
+  --color-brand-800: #173f6c;
+  --color-brand-900: #0f2e52;
+  --color-brand-950: #0a1f38;
+
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Tokens semánticos (shadcn/ui) */
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: var(--color-ink-700);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink-700);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-ink-700);
+  --primary: var(--color-brand-900);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-brand-50);
+  --secondary-foreground: var(--color-brand-900);
+  --muted: #f5f8fb;
+  --muted-foreground: var(--color-ink-500);
+  --accent: var(--color-brand-50);
+  --accent-foreground: var(--color-brand-900);
+  --destructive: #c2410c;
+  --destructive-foreground: #ffffff;
+  --success: #15803d;
+  --warning: #b45309;
+  --border: #e2e8f0;
+  --input: #d6dee8;
+  --ring: var(--color-brand-500);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-brand-900;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 sm:py-24;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.2em] text-brand-500 uppercase;
+  }
+}
