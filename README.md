@@ -3,7 +3,9 @@
 Sitio web + sistema de reservas + panel de administración para una clínica estética.
 Construido como **plantilla reutilizable**: ver [PERSONALIZAR.md](./PERSONALIZAR.md) (se completa en la fase final).
 
-**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · Supabase (Postgres, Auth, Storage) · Nodemailer (Gmail) · Vercel.
+**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · Supabase (Postgres, Auth, Storage) · Nodemailer (Gmail) · Netlify · GitHub Actions.
+
+**Todo funciona con planes gratuitos** que permiten uso comercial: GitHub, Supabase Free, Gmail, Netlify Free y GitHub Actions.
 
 ---
 
@@ -17,7 +19,7 @@ Construido como **plantilla reutilizable**: ver [PERSONALIZAR.md](./PERSONALIZAR
 6. [Tests](#6-tests)
 7. [Estructura del proyecto](#7-estructura-del-proyecto)
 
-> Las secciones de **correo (Gmail)** y **publicación en Vercel** se agregan en las fases 4 y 6.
+> Las secciones de **correo (Gmail)**, **recordatorios con GitHub Actions** y **publicación en Netlify** se agregan en las fases 4 y 6.
 
 ---
 
@@ -36,7 +38,7 @@ Todas tienen plan gratuito suficiente para empezar.
 |---|---|---|
 | GitHub | Guardar el código | <https://github.com/signup> |
 | Supabase | Base de datos, login del manager, fotos | <https://supabase.com/dashboard/sign-up> (podés entrar con GitHub) |
-| Vercel | Publicar el sitio | <https://vercel.com/signup> (entrá con GitHub) |
+| Netlify | Publicar el sitio (gratis, uso comercial permitido) | <https://app.netlify.com/signup> (entrá con GitHub) |
 | Google (Gmail) | Enviar correos | Tu cuenta de Gmail con verificación en 2 pasos |
 
 ## 3. Configurar Supabase (base de datos)
@@ -62,8 +64,8 @@ Todas tienen plan gratuito suficiente para empezar.
 
 1. **Authentication → Sign In / Providers** (o *Providers → Email*): **desactivá "Allow new users to sign up"**. Así nadie puede registrarse; el único usuario será el manager creado con el script.
 2. **Authentication → URL Configuration**:
-   - **Site URL:** `http://localhost:3000` (cuando publiques, cambiala por tu URL de Vercel).
-   - **Redirect URLs:** agregá `http://localhost:3000/**` (y luego `https://tu-proyecto.vercel.app/**`).
+   - **Site URL:** `http://localhost:3000` (cuando publiques, cambiala por tu URL de Netlify).
+   - **Redirect URLs:** agregá `http://localhost:3000/**` (y luego `https://clinica-estetica-ivan.netlify.app/**`).
 
 ### 3.4 Copiar las claves
 

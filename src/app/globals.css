@@ -120,6 +120,13 @@
     @apply font-serif text-brand-900;
     text-wrap: balance;
   }
+  /* Cormorant usa números "antiguos" por defecto; forzamos números alineados */
+  .font-serif,
+  h1,
+  h2,
+  h3 {
+    font-variant-numeric: lining-nums;
+  }
   p {
     text-wrap: pretty;
   }

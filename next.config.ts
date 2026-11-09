@@ -5,8 +5,8 @@ const supabaseHost = process.env.NEXT_PUBLIC_SUPABASE_URL
   : "*.supabase.co";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Modelo de caché clásico (unstable_cache + revalidateTag): compatible con Netlify.
+  cacheComponents: false,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

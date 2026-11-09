@@ -45,10 +45,7 @@ export type SiteConfig = typeof siteConfig;
 
 /** URL pública del sitio (sin barra final). */
 export function getSiteUrl(): string {
-  const url =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3000");
+  // En Netlify, `URL` es la URL principal del sitio (la define Netlify sola).
+  const url = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "http://localhost:3000";
   return url.replace(/\/$/, "");
 }
